@@ -1,0 +1,1 @@
+typedef WebGLContextCallback = (renderer:phaser.renderer.webgl.WebGLRenderer) -> Void;

@@ -1,0 +1,1 @@
+typedef EachMapCallback<E> = (key:String, entry:E) -> Null<Bool>;

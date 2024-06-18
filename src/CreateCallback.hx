@@ -1,0 +1,1 @@
+typedef CreateCallback = (bob:phaser.gameobjects.Bob, index:Float) -> Void;

@@ -1,0 +1,1 @@
+typedef EachSetCallback<E> = (entry:E, index:Float) -> Null<Bool>;

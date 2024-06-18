@@ -1,0 +1,1 @@
+typedef FindTileCallback = (value:phaser.tilemaps.Tile, index:Float, array:Array<phaser.tilemaps.Tile>) -> Bool;

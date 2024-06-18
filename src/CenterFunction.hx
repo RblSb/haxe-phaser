@@ -1,0 +1,1 @@
+typedef CenterFunction = (triangle:phaser.geom.Triangle) -> phaser.math.Vector2;

@@ -1,0 +1,3 @@
+package matterjs;
+
+typedef IGridDefinition = { };

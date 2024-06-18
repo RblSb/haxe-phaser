@@ -1,0 +1,1 @@
+typedef TilemapFindCallback = (value:phaser.gameobjects.GameObject, index:Float, array:Array<phaser.gameobjects.GameObject>) -> Bool;

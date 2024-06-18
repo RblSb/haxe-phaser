@@ -1,0 +1,1 @@
+typedef LightForEach = (light:phaser.gameobjects.Light) -> Void;

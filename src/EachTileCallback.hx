@@ -1,0 +1,1 @@
+typedef EachTileCallback = (value:phaser.tilemaps.Tile, index:Float, array:Array<phaser.tilemaps.Tile>) -> Void;
