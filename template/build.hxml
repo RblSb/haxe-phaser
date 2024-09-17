@@ -1,0 +1,15 @@
+
+-main Main
+#include the phaserDist files for offline projects
+#these need to be in the same directory as your project 
+# --macro includeFile("phaserDist/phaser.min.js")
+# Libraries you need
+--macro includeFile("phaserDist/phaser.min.js")
+-lib haxe-phaser
+# build into the src folder
+-cp src
+
+# Compile into a main.js file into dist/ directory
+-js dist/main.js
+
+# To see more information: https://haxe.org/manual/compiler-usage.html
