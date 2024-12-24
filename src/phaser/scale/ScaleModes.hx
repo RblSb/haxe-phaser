@@ -3,7 +3,7 @@ package phaser.scale;
 /**
 	Phaser Scale Manager constants for the different scale modes available.
 **/
-@:native("Phaser.Scale.ScaleModes") @:enum extern abstract ScaleModes(Int) from Int to Int {
+@:native("Phaser.Scale.ScaleModes") extern enum abstract ScaleModes(Int) from Int to Int {
 	/**
 		No scaling happens at all. The canvas is set to the size given in the game config and Phaser doesn't change it
 		again from that point on. If you change the canvas size, either via CSS, or directly via code, then you need

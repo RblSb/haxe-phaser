@@ -3,7 +3,7 @@ package phaser;
 /**
 	Phaser Scale Modes.
 **/
-@:native("Phaser.ScaleModes") @:enum extern abstract ScaleModes(Int) from Int to Int {
+@:native("Phaser.ScaleModes") extern enum abstract ScaleModes(Int) from Int to Int {
 	/**
 		Default Scale Mode (Linear).
 	**/
