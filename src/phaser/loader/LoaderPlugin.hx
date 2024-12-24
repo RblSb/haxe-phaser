@@ -2827,4 +2827,15 @@ package phaser.loader;
 	**/
 	function removeAllListeners(?event:ts.AnyOf2<String, js.lib.Symbol>):LoaderPlugin;
 	static var prototype : LoaderPlugin;
+	
+	#if SPINE_PLUGIN
+	function spine(
+		key: haxe.ds.Either<String, haxe.ds.Either<phaser.loader.filetypes.SpineFileConfig, Array<phaser.loader.filetypes.SpineFileConfig>>>,
+		jsonURL: String,
+		atlasURL: haxe.ds.Either<String, Array<String>>,
+		?preMultipliedAlpha: Bool,
+		?textureXhrSetting: phaser.types.loader.XHRSettingsObject,
+		?atlasXhrSettings: phaser.types.loader.XHRSettingsObject
+	): LoaderPlugin;
+	#end
 }

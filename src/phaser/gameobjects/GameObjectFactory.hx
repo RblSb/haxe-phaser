@@ -830,6 +830,12 @@ package phaser.gameobjects;
 	**/
 	function tweenchain(config:ts.AnyOf2<Dynamic, phaser.types.tweens.TweenBuilderConfig>):phaser.tweens.TweenChain;
 	static var prototype : GameObjectFactory;
+
+	#if SPINE_PLUGIN
+	function spine(x: Float, y: Float, ?key: String, ?animationName: String, ?loop: Bool): spine.SpineGameObject;
+	function spineContainer(x: Float, y: Float, ?children: haxe.ds.Either<spine.SpineGameObject, Array<spine.SpineGameObject>>): spine.SpineContainer;
+	#end
+
 	/**
 		Static method called directly by the Game Object factory functions.
 		With this method you can register a custom GameObject factory in the GameObjectFactory,

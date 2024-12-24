@@ -192,6 +192,12 @@ package phaser.gameobjects;
 		Note: This method will only be available if Tweens have been built into Phaser.
 	**/
 	function tweenchain(config:ts.AnyOf2<Dynamic, phaser.types.tweens.TweenBuilderConfig>):phaser.tweens.TweenChain;
+
+	#if SPINE_PLUGIN
+	function spine(config: spine.SpineGameObject.SpineGameObjectConfig, ?addToScene: Bool): spine.SpineGameObject;
+	function spineContainer(config: spine.SpineContainer.SpineContainerConfig, ?addToScene: Bool): spine.SpineContainer;
+	#end
+
 	static var prototype : GameObjectCreator;
 	/**
 		Static method called directly by the Game Object creator functions.
