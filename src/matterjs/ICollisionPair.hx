@@ -4,7 +4,7 @@ typedef ICollisionPair = {
 	var id : String;
 	var bodyA : Body;
 	var bodyB : Body;
-	var activeContacts : Array<Vector>;
+	var contacts : Array<Vector>;
 	var separation : Float;
 	var isActive : Bool;
 	var confirmedActive : Bool;

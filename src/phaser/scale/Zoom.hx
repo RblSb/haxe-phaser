@@ -3,7 +3,7 @@ package phaser.scale;
 /**
 	Phaser Scale Manager constants for zoom modes.
 **/
-@:native("Phaser.Scale.Zoom") extern enum abstract Zoom(Int) from Int to Int {
+@:native("Phaser.Scale.Zoom") @:enum extern abstract Zoom(Int) from Int to Int {
 	/**
 		The game canvas will not be zoomed by Phaser.
 	**/

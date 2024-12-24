@@ -91,6 +91,18 @@ package phaser.tilemaps;
 	**/
 	static function GetTileCornersFunction(orientation:Float):haxe.Constraints.Function;
 	/**
+		Gets the correct function to use to translate tiles, based on the map orientation.
+	**/
+	static function GetTileToWorldXFunction(orientation:Float):haxe.Constraints.Function;
+	/**
+		Gets the correct function to use to translate tiles, based on the map orientation.
+	**/
+	static function GetTileToWorldXYFunction(orientation:Float):haxe.Constraints.Function;
+	/**
+		Gets the correct function to use to translate tiles, based on the map orientation.
+	**/
+	static function GetTileToWorldYFunction(orientation:Float):haxe.Constraints.Function;
+	/**
 		Gets the tiles in the given rectangular area (in tile coordinates) of the layer.
 		
 		This returns an array with references to the Tile instances in, so be aware of
@@ -106,18 +118,6 @@ package phaser.tilemaps;
 		Gets the tiles in the given rectangular area (in world coordinates) of the layer.
 	**/
 	static function GetTilesWithinWorldXY(worldX:Float, worldY:Float, width:Float, height:Float, filteringOptions:phaser.types.tilemaps.FilteringOptions, camera:phaser.cameras.scene2d.Camera, layer:LayerData):Array<Tile>;
-	/**
-		Gets the correct function to use to translate tiles, based on the map orientation.
-	**/
-	static function GetTileToWorldXFunction(orientation:Float):haxe.Constraints.Function;
-	/**
-		Gets the correct function to use to translate tiles, based on the map orientation.
-	**/
-	static function GetTileToWorldXYFunction(orientation:Float):haxe.Constraints.Function;
-	/**
-		Gets the correct function to use to translate tiles, based on the map orientation.
-	**/
-	static function GetTileToWorldYFunction(orientation:Float):haxe.Constraints.Function;
 	/**
 		Gets the correct function to use to translate tiles, based on the map orientation.
 		

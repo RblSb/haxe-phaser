@@ -244,4 +244,9 @@ typedef FileConfig = {
 	**/
 	@:optional
 	var svgConfig : phaser.types.loader.filetypes.SVGSizeConfig;
+	/**
+		The number of times to retry the file load if it fails.
+	**/
+	@:optional
+	var maxRetries : Float;
 };

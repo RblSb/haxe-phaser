@@ -158,6 +158,15 @@ package phaser.cameras.scene2d;
 	**/
 	var isSceneCamera : Bool;
 	/**
+		Can this Camera render rounded pixel values?
+		
+		This property is updated during the `preRender` method and should not be
+		set directly. It is set based on the `roundPixels` property of the Camera
+		combined with the zoom level. If the zoom is an integer then the WebGL
+		Renderer can apply rounding during rendering.
+	**/
+	final renderRoundPixels : Bool;
+	/**
 		Adds the given Game Object to this cameras render list.
 		
 		This is invoked during the rendering stage. Only objects that are actually rendered
@@ -223,10 +232,6 @@ package phaser.cameras.scene2d;
 		so that they are ignored by this Camera. This means they will not be rendered by this Camera.
 	**/
 	function ignore(entries:ts.AnyOf5<phaser.gameobjects.GameObject, Array<phaser.gameobjects.GameObject>, phaser.gameobjects.Group, phaser.gameobjects.Layer, Array<phaser.gameobjects.Layer>>):BaseCamera;
-	/**
-		Internal preRender step.
-	**/
-	private function preRender():Void;
 	/**
 		Takes an x value and checks it's within the range of the Camera bounds, adjusting if required.
 		Do not call this method if you are not using camera bounds.

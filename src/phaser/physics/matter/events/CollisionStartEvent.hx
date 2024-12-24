@@ -4,7 +4,7 @@ typedef CollisionStartEvent = {
 	/**
 		A list of all affected pairs in the collision.
 	**/
-	var pairs : Array<phaser.types.physics.matter.MatterCollisionData>;
+	var pairs : Array<phaser.types.physics.matter.MatterCollisionPair>;
 	/**
 		The Matter Engine `timing.timestamp` value for the event.
 	**/

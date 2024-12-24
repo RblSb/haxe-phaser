@@ -36,11 +36,11 @@ package phaser.physics.arcade;
 	/**
 		The callback to invoke when the two objects collide.
 	**/
-	dynamic function collideCallback(object1:ts.AnyOf2<phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>, object2:ts.AnyOf2<phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>):Void;
+	dynamic function collideCallback(object1:ts.AnyOf3<Body, phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>, object2:ts.AnyOf3<Body, phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>):Void;
 	/**
 		If a processCallback exists it must return true or collision checking will be skipped.
 	**/
-	dynamic function processCallback(object1:ts.AnyOf2<phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>, object2:ts.AnyOf2<phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>):Void;
+	dynamic function processCallback(object1:ts.AnyOf3<Body, phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>, object2:ts.AnyOf3<Body, phaser.types.physics.arcade.GameObjectWithBody, phaser.tilemaps.Tile>):Void;
 	/**
 		The context the collideCallback and processCallback will run in.
 	**/

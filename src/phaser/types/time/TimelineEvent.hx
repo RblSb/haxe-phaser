@@ -59,4 +59,9 @@ typedef TimelineEvent = {
 	**/
 	@:optional
 	var event : String;
+	/**
+		If this Event is using a Tween to manage its actions, this property will contain a reference to it.
+	**/
+	@:optional
+	var tweenInstance : ts.AnyOf2<phaser.tweens.Tween, phaser.tweens.TweenChain>;
 };

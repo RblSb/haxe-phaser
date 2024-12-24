@@ -3,7 +3,7 @@ package phaser.tilemaps;
 /**
 	Phaser Tilemap constants for orientation.
 **/
-@:native("Phaser.Tilemaps.Orientation") extern enum abstract Orientation(Int) from Int to Int {
+@:native("Phaser.Tilemaps.Orientation") @:enum extern abstract Orientation(Int) from Int to Int {
 	/**
 		Orthogonal Tilemap orientation constant.
 	**/

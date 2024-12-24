@@ -216,6 +216,15 @@ package phaser.gameobjects.particles;
 	**/
 	var particleClass : haxe.Constraints.Function;
 	/**
+		An internal object holding the configuration for the Emitter.
+		
+		These are populated as part of the Emitter configuration parsing.
+		
+		You typically do not access them directly, but instead use the
+		`ParticleEmitter.setConfig` or `ParticleEmitter.updateConfig` methods.
+	**/
+	var config : phaser.types.gameobjects.particles.ParticleEmitterConfig;
+	/**
 		An internal object holding all of the EmitterOp instances.
 		
 		These are populated as part of the Emitter configuration parsing.
@@ -460,6 +469,13 @@ package phaser.gameobjects.particles;
 	**/
 	function setConfig(config:phaser.types.gameobjects.particles.ParticleEmitterConfig):ParticleEmitter;
 	/**
+		Takes an existing Emitter Configuration file and updates this Emitter.
+		Existing properties are overriden while new properties are added. The
+		updated configuration is then passed to the `setConfig` method to reset
+		the Emitter with the updated configuration.
+	**/
+	function updateConfig(config:phaser.types.gameobjects.particles.ParticleEmitterConfig):ParticleEmitter;
+	/**
 		Resets the internal counter trackers.
 		
 		You shouldn't ever need to call this directly.
@@ -497,6 +513,8 @@ package phaser.gameobjects.particles;
 		anim: 'red'
 		anim: [ 'red', 'green', 'blue', 'pink', 'white' ]
 		anim: { anims: [ 'red', 'green', 'blue', 'pink', 'white' ], [cycle: bool], [quantity: int] }
+		
+		Call this method at least once before any particles are created, or set `anim` in the Particle Emitter's configuration when creating the Emitter.
 	**/
 	function setAnim(anims:ts.AnyOf3<String, Array<String>, phaser.types.gameobjects.particles.ParticleEmitterAnimConfig>, ?pickRandom:Bool, ?quantity:Float):ParticleEmitter;
 	/**
@@ -604,7 +622,7 @@ package phaser.gameobjects.particles;
 		or any object with a suitable {@link Phaser.Types.GameObjects.Particles.EdgeZoneSourceCallback getPoints} method.
 		
 		A {@link Phaser.Types.GameObjects.Particles.ParticleEmitterRandomZoneConfig RandomZone} places the particles randomly within its interior.
-		Its {@link RandomZoneSource source} can be a Circle, Ellipse, Line, Polygon, Rectangle, or Triangle; or any object with a suitable {@link Phaser.Types.GameObjects.Particles.RandomZoneSourceCallback getRandomPoint} method.
+		Its {@link Phaser.GameObjects.Particles.Zones.RandomZone#source source} can be a Circle, Ellipse, Line, Polygon, Rectangle, or Triangle; or any object with a suitable {@link Phaser.Types.GameObjects.Particles.RandomZoneSourceCallback getRandomPoint} method.
 		
 		An Emission Zone can only exist once within this Emitter.
 	**/
@@ -1238,6 +1256,42 @@ package phaser.gameobjects.particles;
 	**/
 	function setDepth(value:Float):ParticleEmitter;
 	/**
+		Sets this Game Object to be at the top of the display list, or the top of its parent container.
+		
+		Being at the top means it will render on-top of everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToTop():ParticleEmitter;
+	/**
+		Sets this Game Object to the back of the display list, or the back of its parent container.
+		
+		Being at the back means it will render below everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToBack():ParticleEmitter;
+	/**
+		Move this Game Object so that it appears above the given Game Object.
+		
+		This means it will render immediately after the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setAbove(gameObject:phaser.gameobjects.GameObject):ParticleEmitter;
+	/**
+		Move this Game Object so that it appears below the given Game Object.
+		
+		This means it will render immediately under the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setBelow(gameObject:phaser.gameobjects.GameObject):ParticleEmitter;
+	/**
 		The Mask this Game Object is using during render.
 	**/
 	var mask : ts.AnyOf2<phaser.display.masks.BitmapMask, phaser.display.masks.GeometryMask>;
@@ -1328,7 +1382,7 @@ package phaser.gameobjects.particles;
 	/**
 		Gets the name of the WebGL Pipeline this Game Object is currently using.
 	**/
-	function getPipelineName():String;
+	function getPipelineName():Null<String>;
 	/**
 		Does this Game Object have any Post Pipelines set?
 	**/
@@ -1786,7 +1840,7 @@ package phaser.gameobjects.particles;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():ParticleEmitter;
+	function disableInteractive(?resetCursor:Bool):ParticleEmitter;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -1807,7 +1861,7 @@ package phaser.gameobjects.particles;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():ParticleEmitter;
+	function removeInteractive(?resetCursor:Bool):ParticleEmitter;
 	/**
 		Adds this Game Object to the given Display List.
 		

@@ -231,7 +231,7 @@ package phaser.gameobjects;
 	/**
 		Loads a Video from the given MediaStream object, ready for playback with the `Video.play` method.
 	**/
-	function loadMediaStream(stream:String, ?noAudio:Bool, ?crossOrigin:String):Video;
+	function loadMediaStream(stream:js.html.MediaStream, ?noAudio:Bool, ?crossOrigin:String):Video;
 	/**
 		Internal method that loads a Video from the given URL, ready for playback with the
 		`Video.play` method.
@@ -281,6 +281,14 @@ package phaser.gameobjects;
 		user has interacted with the browser, into your game flow.
 	**/
 	function play(?loop:Bool, ?markerIn:Float, ?markerOut:Float):Video;
+	/**
+		Attempts to get the first frame of the video by running the `requestVideoFrame` callback once,
+		then stopping. This is useful if you need to grab the first frame of the video to display behind
+		a 'play' button, without actually calling the 'play' method.
+		
+		If the video is already playing, or has been queued to play with `changeSource` then this method just returns.
+	**/
+	function getFirstFrame():Video;
 	/**
 		Adds the loading specific event handlers to the video element.
 	**/
@@ -791,6 +799,42 @@ package phaser.gameobjects;
 	**/
 	function setDepth(value:Float):Video;
 	/**
+		Sets this Game Object to be at the top of the display list, or the top of its parent container.
+		
+		Being at the top means it will render on-top of everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToTop():Video;
+	/**
+		Sets this Game Object to the back of the display list, or the back of its parent container.
+		
+		Being at the back means it will render below everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToBack():Video;
+	/**
+		Move this Game Object so that it appears above the given Game Object.
+		
+		This means it will render immediately after the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setAbove(gameObject:GameObject):Video;
+	/**
+		Move this Game Object so that it appears below the given Game Object.
+		
+		This means it will render immediately under the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setBelow(gameObject:GameObject):Video;
+	/**
 		The horizontally flipped state of the Game Object.
 		
 		A Game Object that is flipped horizontally will render inversed on the horizontal axis.
@@ -1042,7 +1086,7 @@ package phaser.gameobjects;
 	/**
 		Gets the name of the WebGL Pipeline this Game Object is currently using.
 	**/
-	function getPipelineName():String;
+	function getPipelineName():Null<String>;
 	/**
 		Does this Game Object have any Post Pipelines set?
 	**/
@@ -1613,7 +1657,7 @@ package phaser.gameobjects;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():Video;
+	function disableInteractive(?resetCursor:Bool):Video;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -1634,7 +1678,7 @@ package phaser.gameobjects;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():Video;
+	function removeInteractive(?resetCursor:Bool):Video;
 	/**
 		Adds this Game Object to the given Display List.
 		

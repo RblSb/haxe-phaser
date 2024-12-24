@@ -127,8 +127,10 @@ package phaser.gameobjects.particles;
 		This component provides features to apply animations to this Particle.
 		It is responsible for playing, loading, queuing animations for later playback,
 		mixing between animations and setting the current animation frame to this Particle.
+		
+		It is created only if the Particle's Emitter has at least one Animation.
 	**/
-	var anims : phaser.animations.AnimationState;
+	var anims : Null<phaser.animations.AnimationState>;
 	/**
 		A rectangle that holds the bounds of this Particle after a call to
 		the `Particle.getBounds` method has been made.

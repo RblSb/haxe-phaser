@@ -90,6 +90,16 @@ package phaser.time;
 	**/
 	var elapsed : Float;
 	/**
+		The Timeline's delta time scale.
+		
+		Values higher than 1 increase the speed of time, while values smaller than 1 decrease it.
+		A value of 0 freezes time and is effectively equivalent to pausing the Timeline.
+		
+		This doesn't affect the delta time scale of any Tweens created by the Timeline.
+		You will have to set the `timeScale` of each Tween or the Tween Manager if you want them to match.
+	**/
+	var timeScale : Float;
+	/**
 		Whether the Timeline is running (`true`) or active (`false`).
 		
 		When paused, the Timeline will not run any of its actions.
@@ -218,6 +228,8 @@ package phaser.time;
 		
 		If the Timeline isn't currently running (i.e. it's paused or complete) then
 		calling this method resets those states, the same as calling `Timeline.play(true)`.
+		
+		Any Tweens that were currently running by this Timeline will be stopped.
 	**/
 	function reset(?loop:Bool):Timeline;
 	/**
@@ -238,6 +250,8 @@ package phaser.time;
 	/**
 		Removes all events from this Timeline, resets the elapsed time to zero
 		and pauses the Timeline.
+		
+		Any Tweens that were currently running as a result of this Timeline will be stopped.
 	**/
 	function clear():Timeline;
 	/**

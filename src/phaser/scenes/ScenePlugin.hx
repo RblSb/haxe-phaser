@@ -135,7 +135,7 @@ package phaser.scenes;
 		This will happen at the next Scene Manager update, not immediately.
 	**/
 	@:native("switch")
-	function switch_<T>(key:ts.AnyOf2<String, T>):ScenePlugin;
+	function switch_<T>(key:ts.AnyOf2<String, T>, ?data:Dynamic):ScenePlugin;
 	/**
 		Shutdown the Scene, clearing display list, timers, etc.
 		
@@ -173,15 +173,17 @@ package phaser.scenes;
 	**/
 	function swapPosition<T>(keyA:ts.AnyOf2<String, T>, ?keyB:ts.AnyOf2<String, T>):ScenePlugin;
 	/**
-		Swaps the position of two scenes in the Scenes list, so that Scene B is directly above Scene A.
+		Moves a Scene so it is immediately above another Scene in the Scenes list.
+		If the Scene is already above the other, it isn't moved.
 		
-		This controls the order in which they are rendered and updated.
+		This means it will render over the top of the other Scene.
 	**/
 	function moveAbove<T>(keyA:ts.AnyOf2<String, T>, ?keyB:ts.AnyOf2<String, T>):ScenePlugin;
 	/**
-		Swaps the position of two scenes in the Scenes list, so that Scene B is directly below Scene A.
+		Moves a Scene so it is immediately below another Scene in the Scenes list.
+		If the Scene is already below the other, it isn't moved.
 		
-		This controls the order in which they are rendered and updated.
+		This means it will render behind the other Scene.
 	**/
 	function moveBelow<T>(keyA:ts.AnyOf2<String, T>, ?keyB:ts.AnyOf2<String, T>):ScenePlugin;
 	/**
@@ -215,7 +217,10 @@ package phaser.scenes;
 	**/
 	function sendToBack<T>(?key:ts.AnyOf2<String, T>):ScenePlugin;
 	/**
-		Retrieve a Scene.
+		Retrieves a Scene based on the given key.
+		
+		If an actual Scene is passed to this method, it can be used to check if
+		its currently within the Scene Manager, or not.
 	**/
 	function get<T>(key:ts.AnyOf2<String, T>):T;
 	/**

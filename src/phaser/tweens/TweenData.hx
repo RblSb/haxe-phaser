@@ -23,7 +23,7 @@ package phaser.tweens;
 		A function that returns what to set the target property to,
 		the moment the TweenData is invoked.
 		
-		This is called when this TweenData is inititalised or reset.
+		This is called when this TweenData is initialised or reset.
 	**/
 	@:optional
 	dynamic function getActiveValue(target:Dynamic, key:String, value:Float, targetIndex:Float, totalTargets:Float, tween:Tween):Float;

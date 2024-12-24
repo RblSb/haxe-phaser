@@ -131,6 +131,10 @@ package phaser.core;
 	**/
 	final inFocus : Bool;
 	/**
+		The duration of the most recent game pause, if any, in ms.
+	**/
+	final pauseDuration : Float;
+	/**
 		The delta time, in ms, since the last game step. This is a clamped and smoothed average value.
 	**/
 	var delta : Float;

@@ -80,7 +80,7 @@ typedef RenderConfig = {
 		The WebGL Pipeline configuration object.
 	**/
 	@:optional
-	var pipeline : ts.AnyOf2<PipelineConfig, Array<phaser.renderer.webgl.WebGLPipeline>>;
+	var pipeline : PipelineConfig;
 	/**
 		Automatically enable the Mobile Pipeline if iOS or Android detected?
 	**/

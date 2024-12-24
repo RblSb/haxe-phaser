@@ -120,6 +120,14 @@ package phaser.textures;
 	**/
 	var v1 : Float;
 	/**
+		Sets the x and y position within the source image to cut from.
+	**/
+	function setCutPosition(?x:Float, ?y:Float):Frame;
+	/**
+		Sets the width, and height of the area in the source image to cut.
+	**/
+	function setCutSize(width:Float, height:Float):Frame;
+	/**
 		Sets the width, height, x and y of this Frame.
 		
 		This is called automatically by the constructor

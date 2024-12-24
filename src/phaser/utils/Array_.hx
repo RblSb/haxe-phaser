@@ -86,11 +86,15 @@ package phaser.utils;
 	static function GetRandom<T>(array:Array<T>, ?startIndex:Float, ?length:Float):T;
 	/**
 		Moves the given array element above another one in the array.
+		If the given element is already above the other, it isn't moved.
+		Above means toward the end of the array.
 		The array is modified in-place.
 	**/
 	static function MoveAbove(array:Array<Dynamic>, item1:Dynamic, item2:Dynamic):Array<Dynamic>;
 	/**
 		Moves the given array element below another one in the array.
+		If the given element is already below the other, it isn't moved.
+		Below means toward the start of the array.
 		The array is modified in-place.
 	**/
 	static function MoveBelow(array:Array<Dynamic>, item1:Dynamic, item2:Dynamic):Array<Dynamic>;

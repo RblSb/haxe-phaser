@@ -387,6 +387,10 @@ package phaser.scale;
 	**/
 	function stopFullscreen():Void;
 	/**
+		The browser has successfully left fullscreen mode.
+	**/
+	function leaveFullScreenSuccessHandler():Void;
+	/**
 		Toggles the fullscreen mode. If already in fullscreen, calling this will cancel it.
 		If not in fullscreen, this will request the browser to enter fullscreen mode.
 		

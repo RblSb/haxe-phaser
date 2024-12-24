@@ -30,7 +30,7 @@ typedef JSONCamera = {
 	**/
 	var rotation : Float;
 	/**
-		The round pixels st status of camera
+		The round pixels indicate the status of the camera
 	**/
 	var roundPixels : Bool;
 	/**

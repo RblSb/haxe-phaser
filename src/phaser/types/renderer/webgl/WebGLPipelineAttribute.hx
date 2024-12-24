@@ -25,5 +25,8 @@ typedef WebGLPipelineAttribute = {
 		You should set this to `false` by default. The pipeline will enable it on boot.
 	**/
 	var enabled : Bool;
-	var undefined : Dynamic;
+	/**
+		You should set this to `-1` by default. The pipeline will set it on boot.
+	**/
+	var location : ts.AnyOf2<Float, phaser.renderer.webgl.wrappers.WebGLAttribLocationWrapper>;
 };

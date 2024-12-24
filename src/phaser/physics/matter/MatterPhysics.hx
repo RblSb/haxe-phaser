@@ -208,58 +208,6 @@ package phaser.physics.matter;
 	**/
 	function getConfig():phaser.types.physics.matter.MatterWorldConfig;
 	/**
-		Enables the Matter Attractors Plugin.
-		
-		The attractors plugin that makes it easy to apply continual forces on bodies.
-		It's possible to simulate effects such as wind, gravity and magnetism.
-		
-		https://github.com/liabru/matter-attractors
-		
-		This method is called automatically if `plugins.attractors` is set in the Matter World Config.
-		However, you can also call it directly from within your game.
-	**/
-	function enableAttractorPlugin():MatterPhysics;
-	/**
-		Enables the Matter Wrap Plugin.
-		
-		The coordinate wrapping plugin that automatically wraps the position of bodies such that they always stay
-		within the given bounds. Upon crossing a boundary the body will appear on the opposite side of the bounds,
-		while maintaining its velocity.
-		
-		https://github.com/liabru/matter-wrap
-		
-		This method is called automatically if `plugins.wrap` is set in the Matter World Config.
-		However, you can also call it directly from within your game.
-	**/
-	function enableWrapPlugin():MatterPhysics;
-	/**
-		Enables the Matter Collision Events Plugin.
-		
-		Note that this plugin is enabled by default. So you should only ever need to call this
-		method if you have specifically disabled the plugin in your Matter World Config.
-		You can disable it by setting `plugins.collisionevents: false` in your Matter World Config.
-		
-		This plugin triggers three new events on Matter.Body:
-		
-		1. `onCollide`
-		2. `onCollideEnd`
-		3. `onCollideActive`
-		
-		These events correspond to the Matter.js events `collisionStart`, `collisionActive` and `collisionEnd`, respectively.
-		You can listen to these events via Matter.Events or they will also be emitted from the Matter World.
-		
-		This plugin also extends Matter.Body with three convenience functions:
-		
-		`Matter.Body.setOnCollide(callback)`
-		`Matter.Body.setOnCollideEnd(callback)`
-		`Matter.Body.setOnCollideActive(callback)`
-		
-		You can register event callbacks by providing a function of type (pair: Matter.Pair) => void
-		
-		https://github.com/dxu/matter-collision-events
-	**/
-	function enableCollisionEventsPlugin():MatterPhysics;
-	/**
 		Pauses the Matter World instance and sets `enabled` to `false`.
 		
 		A paused world will not run any simulations for the duration it is paused.

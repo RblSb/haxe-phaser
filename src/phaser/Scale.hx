@@ -31,11 +31,11 @@ package phaser;
 	**/
 	static final CENTER_VERTICALLY : Float;
 	/**
-		A landscape orientation.
+		The primary landscape orientation.
 	**/
 	static final LANDSCAPE : String;
 	/**
-		A portrait orientation.
+		The primary portrait orientation.
 	**/
 	static final PORTRAIT : String;
 	/**
@@ -67,6 +67,11 @@ package phaser;
 		The Canvas is resized to fit all available _parent_ space, regardless of aspect ratio.
 	**/
 	static final RESIZE : Float;
+	/**
+		The Canvas's visible area is resized to fit all available _parent_ space like RESIZE mode,
+		and scale canvas size to fit inside the visible area like FIT mode.
+	**/
+	static final EXPAND : Float;
 	/**
 		The game canvas will not be zoomed by Phaser.
 	**/

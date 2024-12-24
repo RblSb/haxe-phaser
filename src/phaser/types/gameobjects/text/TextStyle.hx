@@ -15,7 +15,7 @@ typedef TextStyle = {
 	@:optional
 	var fontSize : ts.AnyOf2<String, Float>;
 	/**
-		Any addition font styles, such as 'strong'.
+		Any addition font styles, such as 'bold'.
 	**/
 	@:optional
 	var fontStyle : String;

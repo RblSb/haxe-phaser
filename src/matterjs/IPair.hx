@@ -5,7 +5,7 @@ typedef IPair = {
 	var bodyA : Body;
 	var bodyB : Body;
 	var contacts : Dynamic;
-	var activeContacts : Dynamic;
+	var contactCount : Float;
 	var separation : Float;
 	var isActive : Bool;
 	var timeCreated : Float;

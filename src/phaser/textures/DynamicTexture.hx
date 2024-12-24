@@ -91,7 +91,7 @@ package phaser.textures;
 		
 		You can scroll, zoom and rotate this Camera.
 	**/
-	var camera : phaser.cameras.scene2d.BaseCamera;
+	var camera : phaser.cameras.scene2d.Camera;
 	/**
 		The Render Target that belongs to this Dynamic Texture.
 		
@@ -140,10 +140,10 @@ package phaser.textures;
 	**/
 	function fill(rgb:Float, ?alpha:Float, ?x:Float, ?y:Float, ?width:Float, ?height:Float):DynamicTexture;
 	/**
-		Fully clears this Dynamic Texture, erasing everything from it and resetting it back to
-		a blank, transparent, texture.
+		Clears a portion or everything from this Dynamic Texture by erasing it and resetting it back to
+		a blank, transparent, texture. To clear an area, specify the `x`, `y`, `width` and `height`.
 	**/
-	function clear():DynamicTexture;
+	function clear(?x:Float, ?y:Float, ?width:Float, ?height:Float):DynamicTexture;
 	/**
 		Takes the given texture key and frame and then stamps it at the given
 		x and y coordinates. You can use the optional 'config' argument to provide

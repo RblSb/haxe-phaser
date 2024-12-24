@@ -3,7 +3,7 @@ package phaser.textures;
 /**
 	Filter Types.
 **/
-@:native("Phaser.Textures.FilterMode") extern enum abstract FilterMode(Int) from Int to Int {
+@:native("Phaser.Textures.FilterMode") @:enum extern abstract FilterMode(Int) from Int to Int {
 	/**
 		Linear filter type.
 	**/

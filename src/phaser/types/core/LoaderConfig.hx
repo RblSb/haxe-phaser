@@ -51,4 +51,19 @@ typedef LoaderConfig = {
 	**/
 	@:optional
 	var localScheme : Array<String>;
+	/**
+		Optional XHR withCredentials value.
+	**/
+	@:optional
+	var withCredentials : Bool;
+	/**
+		Optional load type for image, `XHR` is default, or `HTMLImageElement` for a lightweight way.
+	**/
+	@:optional
+	var imageLoadType : String;
+	/**
+		The number of times to retry the file load if it fails.
+	**/
+	@:optional
+	var maxRetries : Float;
 };

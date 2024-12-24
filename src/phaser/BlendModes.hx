@@ -3,7 +3,7 @@ package phaser;
 /**
 	Phaser Blend Modes.
 **/
-@:native("Phaser.BlendModes") extern enum abstract BlendModes(Int) from Int to Int {
+@:native("Phaser.BlendModes") @:enum extern abstract BlendModes(Int) from Int to Int {
 	/**
 		Skips the Blend Mode check in the renderer.
 	**/

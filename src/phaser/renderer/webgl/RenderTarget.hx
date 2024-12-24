@@ -68,12 +68,19 @@ package phaser.renderer.webgl;
 	**/
 	var forceClamp : Bool;
 	/**
+		Sets up this Render Target to the given width and height, creating a new
+		frame buffer and texture. This method is called automatically by the constructor
+		and at no other time.
+	**/
+	function init(width:Float, height:Float):Void;
+	/**
 		Sets if this Render Target should automatically resize when the WebGL Renderer
 		emits a resize event.
 	**/
 	function setAutoResize(autoResize:Bool):RenderTarget;
 	/**
-		Resizes this Render Target.
+		Resizes this Render Target as long as the given width and height are different
+		to the current width and height.
 		
 		Deletes both the frame buffer and texture, if they exist and then re-creates
 		them using the new sizes.
@@ -101,9 +108,10 @@ package phaser.renderer.webgl;
 	**/
 	function adjustViewport():Void;
 	/**
-		Clears this Render Target.
+		Clears a portion or everything from this Render Target. To clear an area,
+		specify the `x`, `y`, `width` and `height`.
 	**/
-	function clear():Void;
+	function clear(?x:Float, ?y:Float, ?width:Float, ?height:Float):Void;
 	/**
 		Unbinds this Render Target and optionally flushes the WebGL Renderer first.
 	**/

@@ -11,6 +11,26 @@ package phaser.gameobjects;
 @:native("Phaser.GameObjects.GameObjectCreator") extern class GameObjectCreator {
 	function new(scene:phaser.Scene);
 	/**
+		The Scene to which this Game Object Creator belongs.
+	**/
+	private var scene : phaser.Scene;
+	/**
+		A reference to the Scene.Systems.
+	**/
+	private var systems : phaser.scenes.Systems;
+	/**
+		A reference to the Scene Event Emitter.
+	**/
+	private var events : phaser.events.EventEmitter;
+	/**
+		A reference to the Scene Display List.
+	**/
+	private var displayList : DisplayList;
+	/**
+		A reference to the Scene Update List.
+	**/
+	private var updateList : UpdateList;
+	/**
 		Creates a new Dynamic Bitmap Text Game Object and returns it.
 		
 		Note: This method will only be available if the Dynamic Bitmap Text Game Object has been built into Phaser.
@@ -34,26 +54,6 @@ package phaser.gameobjects;
 		Note: This method will only be available if the Container Game Object has been built into Phaser.
 	**/
 	function container(config:phaser.types.gameobjects.container.ContainerConfig, ?addToScene:Bool):Container;
-	/**
-		The Scene to which this Game Object Creator belongs.
-	**/
-	private var scene : phaser.Scene;
-	/**
-		A reference to the Scene.Systems.
-	**/
-	private var systems : phaser.scenes.Systems;
-	/**
-		A reference to the Scene Event Emitter.
-	**/
-	private var events : phaser.events.EventEmitter;
-	/**
-		A reference to the Scene Display List.
-	**/
-	private var displayList : DisplayList;
-	/**
-		A reference to the Scene Update List.
-	**/
-	private var updateList : UpdateList;
 	/**
 		Creates a new Graphics Game Object and returns it.
 		

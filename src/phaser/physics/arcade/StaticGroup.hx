@@ -118,7 +118,7 @@ package phaser.physics.arcade;
 	**/
 	function clear(?removeFromScene:Bool, ?destroyChild:Bool):StaticGroup;
 	/**
-		{@link Phaser.GameObjects.Components.Animation#play Plays} an animation for all members of this group.
+		{@link Phaser.Animations.AnimationState#play Plays} an animation for all members of this group.
 	**/
 	function playAnimation(key:String, ?startFrame:String):StaticGroup;
 	/**

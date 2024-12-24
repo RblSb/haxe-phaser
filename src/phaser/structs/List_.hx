@@ -95,11 +95,15 @@ package phaser.structs;
 	**/
 	function moveTo(child:T, index:Float):T;
 	/**
-		Moves the given array element above another one in the array.
+		Moves an item above another one in the List.
+		If the given item is already above the other, it isn't moved.
+		Above means toward the end of the List.
 	**/
 	function moveAbove(child1:T, child2:T):Void;
 	/**
-		Moves the given array element below another one in the array.
+		Moves an item below another one in the List.
+		If the given item is already below the other, it isn't moved.
+		Below means toward the start of the List.
 	**/
 	function moveBelow(child1:T, child2:T):Void;
 	/**

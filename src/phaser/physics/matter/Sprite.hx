@@ -18,6 +18,26 @@ package phaser.physics.matter;
 	**/
 	var world : World;
 	/**
+		Move this Game Object so that it appears above the given Game Object.
+		
+		This means it will render immediately after the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setAbove(gameObject:phaser.gameobjects.GameObject):Sprite;
+	/**
+		Move this Game Object so that it appears below the given Game Object.
+		
+		This means it will render immediately under the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setBelow(gameObject:phaser.gameobjects.GameObject):Sprite;
+	/**
 		Creates and returns a Bitmap Mask. This mask can be used by any Game Object,
 		including this one, or a Dynamic Texture.
 		
@@ -606,7 +626,7 @@ package phaser.physics.matter;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():Sprite;
+	function disableInteractive(?resetCursor:Bool):Sprite;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -627,7 +647,7 @@ package phaser.physics.matter;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():Sprite;
+	function removeInteractive(?resetCursor:Bool):Sprite;
 	/**
 		Adds this Game Object to the given Display List.
 		

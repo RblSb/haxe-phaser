@@ -45,5 +45,5 @@ typedef Pipeline = {
 	/**
 		Gets the name of the WebGL Pipeline this Game Object is currently using.
 	**/
-	function getPipelineName():String;
+	function getPipelineName():Null<String>;
 };

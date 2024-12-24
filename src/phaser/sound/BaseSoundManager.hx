@@ -128,6 +128,12 @@ package phaser.sound;
 	**/
 	function stopByKey(key:String):Float;
 	/**
+		When a key is given, returns true if any sound with that key is playing.
+		
+		When no key is given, returns true if any sound is playing.
+	**/
+	function isPlaying(key:Null<String>):Bool;
+	/**
 		Method used internally for unlocking audio playback on devices that
 		require user interaction before any sound can be played on a web page.
 		

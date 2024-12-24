@@ -12,10 +12,6 @@ package phaser.renderer.webgl;
 @:native("Phaser.Renderer.WebGL.WebGLRenderer") extern class WebGLRenderer extends phaser.events.EventEmitter {
 	function new(game:phaser.Game);
 	/**
-		Checks to see if the given diffuse and normal map textures are already bound, or not.
-	**/
-	function isNewNormalMap(texture:phaser.renderer.webgl.wrappers.WebGLTextureWrapper, normalMap:phaser.renderer.webgl.wrappers.WebGLTextureWrapper):Bool;
-	/**
 		The local configuration settings of this WebGL Renderer.
 	**/
 	var config : Dynamic;
@@ -134,31 +130,45 @@ package phaser.renderer.webgl;
 	var scissorStack : js.lib.Uint32Array;
 	/**
 		The handler to invoke when the context is lost.
-		This should not be changed and is set in the boot method.
+		This should not be changed and is set in the init method.
 	**/
 	var contextLostHandler : haxe.Constraints.Function;
 	/**
 		The handler to invoke when the context is restored.
-		This should not be changed and is set in the boot method.
+		This should not be changed and is set in the init method.
 	**/
 	var contextRestoredHandler : haxe.Constraints.Function;
+	/**
+		The previous contextLostHandler that was in use.
+		This is set when `setContextHandlers` is called.
+	**/
+	var previousContextLostHandler : haxe.Constraints.Function;
+	/**
+		The previous contextRestoredHandler that was in use.
+		This is set when `setContextHandlers` is called.
+	**/
+	var previousContextRestoredHandler : haxe.Constraints.Function;
 	/**
 		The underlying WebGL context of the renderer.
 	**/
 	var gl : js.html.webgl.RenderingContext;
 	/**
 		Array of strings that indicate which WebGL extensions are supported by the browser.
-		This is populated in the `boot` method.
+		This is populated in the `setExtensions` method.
 	**/
 	var supportedExtensions : Array<String>;
 	/**
 		If the browser supports the `ANGLE_instanced_arrays` extension, this property will hold
 		a reference to the glExtension for it.
+		
+		This is populated in the `setExtensions` method.
 	**/
 	var instancedArraysExtension : js.html.webgl.extension.ANGLEInstancedArrays;
 	/**
 		If the browser supports the `OES_vertex_array_object` extension, this property will hold
 		a reference to the glExtension for it.
+		
+		This is populated in the `setExtensions` method.
 	**/
 	var vaoExtension : js.html.webgl.extension.OESVertexArrayObject;
 	/**
@@ -306,6 +316,39 @@ package phaser.renderer.webgl;
 		Creates a new WebGLRenderingContext and initializes all internal state.
 	**/
 	function init(config:Dynamic):WebGLRenderer;
+	/**
+		Queries the GL context to get the supported extensions.
+		
+		Then sets them into the `supportedExtensions`, `instancedArraysExtension` and `vaoExtension` properties.
+		
+		Called automatically during the `init` method.
+	**/
+	function setExtensions():Void;
+	/**
+		Sets the handlers that are called when WebGL context is lost or restored by the browser.
+		
+		The default handlers are referenced via the properties `WebGLRenderer.contextLostHandler` and `WebGLRenderer.contextRestoredHandler`.
+		By default, these map to the methods `WebGLRenderer.dispatchContextLost` and `WebGLRenderer.dispatchContextRestored`.
+		
+		You can override these handlers with your own via this method.
+		
+		If you do override them, make sure that your handlers invoke the methods `WebGLRenderer.dispatchContextLost` and `WebGLRenderer.dispatchContextRestored` in due course, otherwise the renderer will not be able to restore itself fully.
+	**/
+	function setContextHandlers(?contextLost:haxe.Constraints.Function, ?contextRestored:haxe.Constraints.Function):Void;
+	/**
+		This method is called when the WebGL context is lost. By default this is bound to the property `WebGLRenderer.contextLostHandler`.
+		If you override the context loss handler via the `setContextHandlers` method then be sure to invoke this method in due course.
+	**/
+	function dispatchContextLost(event:js.html.webgl.ContextEvent):Void;
+	/**
+		This method is called when the WebGL context is restored. By default this is bound to the property `WebGLRenderer.contextRestoredHandler`.
+		If you override the context restored handler via the `setContextHandlers` method then be sure to invoke this method in due course.
+	**/
+	function dispatchContextRestored(event:js.html.webgl.ContextEvent):Void;
+	/**
+		Create temporary WebGL textures to stop WebGL errors on macOS.
+	**/
+	function createTemporaryTextures():Void;
 	/**
 		This method is only available in the Debug Build of Phaser, or a build with the
 		`WEBGL_DEBUG` flag set in the Webpack Config.
@@ -757,6 +800,10 @@ package phaser.renderer.webgl;
 		hardware / driver support for a given size.
 	**/
 	function getMaxTextureSize():Float;
+	/**
+		Checks to see if the given diffuse and normal map textures are already bound, or not.
+	**/
+	function isNewNormalMap(texture:phaser.renderer.webgl.wrappers.WebGLTextureWrapper, normalMap:phaser.renderer.webgl.wrappers.WebGLTextureWrapper):Bool;
 	/**
 		Add a listener for a given event.
 	**/

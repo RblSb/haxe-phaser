@@ -154,6 +154,10 @@ package phaser.cameras.scene2d;
 	**/
 	function zoomTo(zoom:Float, ?duration:Float, ?ease:ts.AnyOf2<String, haxe.Constraints.Function>, ?force:Bool, ?callback:phaser.types.cameras.scene2d.CameraPanCallback, ?context:Dynamic):Camera;
 	/**
+		Internal preRender step.
+	**/
+	private function preRender():Void;
+	/**
 		Sets the linear interpolation value to use when following a target.
 		
 		The default values of 1 means the camera will instantly snap to the target coordinates.

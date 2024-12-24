@@ -243,7 +243,7 @@ package phaser.gameobjects;
 		
 		Pass in null to remove wrapping by width.
 	**/
-	function setWordWrapWidth(width:Float, ?useAdvancedWrap:Bool):Text;
+	function setWordWrapWidth(width:Null<Float>, ?useAdvancedWrap:Bool):Text;
 	/**
 		Set a custom callback for wrapping lines.
 		

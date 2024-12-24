@@ -202,7 +202,7 @@ package phaser.core;
 	**/
 	final audio : phaser.types.core.AudioConfig;
 	/**
-		Don't write the banner line to the console.log.
+		Don't write the banner line to the console.log. See `Phaser.Types.Core.BannerConfig` for details of this object.
 	**/
 	final hideBanner : Bool;
 	/**
@@ -232,7 +232,7 @@ package phaser.core;
 	/**
 		An object mapping WebGL names to WebGLPipeline classes. These should be class constructors, not instances.
 	**/
-	final pipeline : ts.AnyOf2<phaser.types.core.PipelineConfig, Array<phaser.renderer.webgl.WebGLPipeline>>;
+	final pipeline : phaser.types.core.PipelineConfig;
 	/**
 		Automatically enable the Mobile Pipeline if iOS or Android detected?
 	**/
@@ -357,6 +357,10 @@ package phaser.core;
 		Optional XHR timeout value, in ms.
 	**/
 	final loaderTimeout : Float;
+	/**
+		The number of times to retry a file load if it fails.
+	**/
+	final loaderMaxRetries : Float;
 	/**
 		Optional XHR withCredentials value.
 	**/

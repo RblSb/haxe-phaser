@@ -76,6 +76,42 @@ package phaser.gameobjects;
 	**/
 	function setDepth(value:Float):Curve;
 	/**
+		Sets this Game Object to be at the top of the display list, or the top of its parent container.
+		
+		Being at the top means it will render on-top of everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToTop():Curve;
+	/**
+		Sets this Game Object to the back of the display list, or the back of its parent container.
+		
+		Being at the back means it will render below everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToBack():Curve;
+	/**
+		Move this Game Object so that it appears above the given Game Object.
+		
+		This means it will render immediately after the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setAbove(gameObject:GameObject):Curve;
+	/**
+		Move this Game Object so that it appears below the given Game Object.
+		
+		This means it will render immediately under the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setBelow(gameObject:GameObject):Curve;
+	/**
 		Sets the mask that this Game Object will use to render with.
 		
 		The mask must have been previously created and can be either a GeometryMask or a BitmapMask.
@@ -383,7 +419,7 @@ package phaser.gameobjects;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():Curve;
+	function disableInteractive(?resetCursor:Bool):Curve;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -404,7 +440,7 @@ package phaser.gameobjects;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():Curve;
+	function removeInteractive(?resetCursor:Bool):Curve;
 	/**
 		Adds this Game Object to the given Display List.
 		

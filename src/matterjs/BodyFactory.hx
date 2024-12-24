@@ -76,11 +76,11 @@ package matterjs;
 	/**
 		Sets the position of the body instantly. Velocity, angle, force etc. are unchanged.
 	**/
-	function setPosition(body:BodyType, position:Vector, updateVelocity:Bool):Void;
+	function setPosition(body:BodyType, position:Vector, ?updateVelocity:Bool):Void;
 	/**
 		Sets the angle of the body instantly. Angular velocity, position, force etc. are unchanged.
 	**/
-	function setAngle(body:BodyType, angle:Float, updateVelocity:Bool):Void;
+	function setAngle(body:BodyType, angle:Float, ?updateVelocity:Bool):Void;
 	/**
 		Sets the linear velocity of the body instantly. Position, angle, force etc. are unchanged. See also `Body.applyForce`.
 	**/

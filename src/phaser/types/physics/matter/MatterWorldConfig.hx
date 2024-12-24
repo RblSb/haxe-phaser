@@ -98,24 +98,6 @@ typedef MatterWorldConfig = {
 	@:native("timing.timeScale")
 	var timing_timeScale : Float;
 	/**
-		Should the Matter Attractor Plugin be enabled? An attractors plugin that makes it easy to apply continual forces on bodies. It's possible to simulate effects such as wind, gravity and magnetism.
-	**/
-	@:optional
-	@:native("plugins.attractors")
-	var plugins_attractors : Bool;
-	/**
-		Should the Matter Wrap Plugin be enabled? A coordinate wrapping plugin that automatically wraps the position of bodies such that they always stay within the given bounds. Upon crossing a boundary the body will appear on the opposite side of the bounds, while maintaining its velocity.
-	**/
-	@:optional
-	@:native("plugins.wrap")
-	var plugins_wrap : Bool;
-	/**
-		Should the Matter Collision Events Plugin be enabled?
-	**/
-	@:optional
-	@:native("plugins.collisionevents")
-	var plugins_collisionevents : Bool;
-	/**
 		Toggles if the world is enabled or not.
 	**/
 	@:optional

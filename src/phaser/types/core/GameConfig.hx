@@ -147,7 +147,7 @@ typedef GameConfig = {
 	@:optional
 	var audio : AudioConfig;
 	/**
-		A WebGL Pipeline configuration object. Can also be part of the `RenderConfig`.
+		The WebGL Pipeline configuration object. Can also be part of the `RenderConfig`.
 	**/
 	@:optional
 	var pipeline : PipelineConfig;

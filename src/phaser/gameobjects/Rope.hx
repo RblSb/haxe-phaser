@@ -370,6 +370,42 @@ package phaser.gameobjects;
 	**/
 	function setDepth(value:Float):Rope;
 	/**
+		Sets this Game Object to be at the top of the display list, or the top of its parent container.
+		
+		Being at the top means it will render on-top of everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToTop():Rope;
+	/**
+		Sets this Game Object to the back of the display list, or the back of its parent container.
+		
+		Being at the back means it will render below everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToBack():Rope;
+	/**
+		Move this Game Object so that it appears above the given Game Object.
+		
+		This means it will render immediately after the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setAbove(gameObject:GameObject):Rope;
+	/**
+		Move this Game Object so that it appears below the given Game Object.
+		
+		This means it will render immediately under the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setBelow(gameObject:GameObject):Rope;
+	/**
 		Toggles the horizontal flipped state of this Game Object.
 		
 		A Game Object that is flipped horizontally will render inversed on the horizontal axis.
@@ -496,7 +532,7 @@ package phaser.gameobjects;
 	/**
 		Gets the name of the WebGL Pipeline this Game Object is currently using.
 	**/
-	function getPipelineName():String;
+	function getPipelineName():Null<String>;
 	/**
 		Does this Game Object have any Post Pipelines set?
 	**/
@@ -1016,7 +1052,7 @@ package phaser.gameobjects;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():Rope;
+	function disableInteractive(?resetCursor:Bool):Rope;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -1037,7 +1073,7 @@ package phaser.gameobjects;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():Rope;
+	function removeInteractive(?resetCursor:Bool):Rope;
 	/**
 		Adds this Game Object to the given Display List.
 		

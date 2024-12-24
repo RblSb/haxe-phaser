@@ -249,7 +249,7 @@ typedef IChamferableBodyDefinition = {
 		A reference to the Phaser Game Object this body belongs to, if any.
 	**/
 	@:optional
-	var gameObject : Dynamic;
+	var gameObject : phaser.gameobjects.GameObject;
 	/**
 		Scale the influence of World gravity when applied to this body.
 	**/
@@ -287,8 +287,8 @@ typedef IChamferableBodyDefinition = {
 	@:optional
 	var onCollideActiveCallback : haxe.Constraints.Function;
 	/**
-		A collision callback dictionary used by the `Body.setOnCollideWith` function.
+		A collision callback dictionary _(body id -> function)_ used by the `Body.setOnCollideWith` function.
 	**/
 	@:optional
-	var onCollideWith : Dynamic;
+	var onCollideWith : Array<haxe.Constraints.Function>;
 };

@@ -3,6 +3,8 @@ package phaser.tilemaps;
 /**
 	A Tilemap Layer is a Game Object that renders LayerData from a Tilemap when used in combination
 	with one, or more, Tilesets.
+	
+	Do not add TilemapLayers to Containers, they are stand-alone display objects.
 **/
 @:native("Phaser.Tilemaps.TilemapLayer") extern class TilemapLayer extends phaser.gameobjects.GameObject {
 	function new(scene:phaser.Scene, tilemap:Tilemap, layerIndex:Float, tileset:ts.AnyOf4<String, Array<String>, Tileset, Array<Tileset>>, ?x:Float, ?y:Float);
@@ -626,6 +628,42 @@ package phaser.tilemaps;
 	**/
 	function setDepth(value:Float):TilemapLayer;
 	/**
+		Sets this Game Object to be at the top of the display list, or the top of its parent container.
+		
+		Being at the top means it will render on-top of everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToTop():TilemapLayer;
+	/**
+		Sets this Game Object to the back of the display list, or the back of its parent container.
+		
+		Being at the back means it will render below everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToBack():TilemapLayer;
+	/**
+		Move this Game Object so that it appears above the given Game Object.
+		
+		This means it will render immediately after the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setAbove(gameObject:phaser.gameobjects.GameObject):TilemapLayer;
+	/**
+		Move this Game Object so that it appears below the given Game Object.
+		
+		This means it will render immediately under the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setBelow(gameObject:phaser.gameobjects.GameObject):TilemapLayer;
+	/**
 		The horizontally flipped state of the Game Object.
 		
 		A Game Object that is flipped horizontally will render inversed on the horizontal axis.
@@ -857,7 +895,7 @@ package phaser.tilemaps;
 	/**
 		Gets the name of the WebGL Pipeline this Game Object is currently using.
 	**/
-	function getPipelineName():String;
+	function getPipelineName():Null<String>;
 	/**
 		Does this Game Object have any Post Pipelines set?
 	**/
@@ -1329,7 +1367,7 @@ package phaser.tilemaps;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():TilemapLayer;
+	function disableInteractive(?resetCursor:Bool):TilemapLayer;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -1350,7 +1388,7 @@ package phaser.tilemaps;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():TilemapLayer;
+	function removeInteractive(?resetCursor:Bool):TilemapLayer;
 	/**
 		Adds this Game Object to the given Display List.
 		

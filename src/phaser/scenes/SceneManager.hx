@@ -154,7 +154,7 @@ package phaser.scenes;
 		Sleeps one one Scene and starts the other.
 	**/
 	@:native("switch")
-	function switch_<T>(from:ts.AnyOf2<String, T>, to:ts.AnyOf2<String, T>):SceneManager;
+	function switch_<T>(from:ts.AnyOf2<String, T>, to:ts.AnyOf2<String, T>, ?data:Dynamic):SceneManager;
 	/**
 		Retrieves a Scene by numeric index.
 	**/
@@ -185,12 +185,14 @@ package phaser.scenes;
 	function moveUp<T>(key:ts.AnyOf2<String, T>):SceneManager;
 	/**
 		Moves a Scene so it is immediately above another Scene in the Scenes list.
+		If the Scene is already above the other, it isn't moved.
 		
 		This means it will render over the top of the other Scene.
 	**/
 	function moveAbove<T>(keyA:ts.AnyOf2<String, T>, keyB:ts.AnyOf2<String, T>):SceneManager;
 	/**
 		Moves a Scene so it is immediately below another Scene in the Scenes list.
+		If the Scene is already below the other, it isn't moved.
 		
 		This means it will render behind the other Scene.
 	**/

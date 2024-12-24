@@ -4,6 +4,10 @@
 	**/
 	static final VERSION : String;
 	/**
+		Phaser Release Version as displayed in the console.log header URL.
+	**/
+	static final LOG_VERSION : String;
+	/**
 		This setting will auto-detect if the browser is capable of suppporting WebGL.
 		If it is, it will use the WebGL Renderer. If not, it will fall back to the Canvas Renderer.
 	**/

@@ -42,6 +42,10 @@ package phaser.math;
 	**/
 	function addVectors(a:Vector3, b:Vector3):Vector3;
 	/**
+		Subtracts the two given Vector3s and sets the results into this Vector3.
+	**/
+	function subVectors(a:Vector3, b:Vector3):Vector3;
+	/**
 		Calculate the cross (vector) product of two given Vectors.
 	**/
 	function crossVectors(a:Vector3, b:Vector3):Vector3;

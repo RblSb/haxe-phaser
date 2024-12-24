@@ -31,6 +31,8 @@ package phaser.utils;
 	static function Pad(str:ts.AnyOf3<String, Float, Dynamic>, ?len:Float, ?pad:String, ?dir:Float):String;
 	/**
 		Takes a string and removes the character at the given index.
+		
+		The index is zero based.
 	**/
 	static function RemoveAt(string:String, index:Float):String;
 	/**
@@ -39,14 +41,14 @@ package phaser.utils;
 	**/
 	static function Reverse(string:String):String;
 	/**
-		Capitalizes the first letter of a string if there is one.
-	**/
-	static function UppercaseFirst(str:String):String;
-	/**
 		Creates and returns an RFC4122 version 4 compliant UUID.
 		
 		The string is in the form: `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx` where each `x` is replaced with a random
 		hexadecimal digit from 0 to f, and `y` is replaced with a random hexadecimal digit from 8 to b.
 	**/
 	static function UUID():String;
+	/**
+		Capitalizes the first letter of a string if there is one.
+	**/
+	static function UppercaseFirst(str:String):String;
 }

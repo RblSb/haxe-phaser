@@ -22,6 +22,11 @@ typedef MatterBodyConfig = {
 	@:optional
 	var plugin : Dynamic;
 	/**
+		An object for storing wrap boundaries.
+	**/
+	@:optional
+	var wrapBounds : Dynamic;
+	/**
 		A number specifying the angle of the body, in radians.
 	**/
 	@:optional

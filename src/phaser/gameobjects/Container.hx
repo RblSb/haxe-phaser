@@ -38,7 +38,7 @@ package phaser.gameobjects;
 	
 	It's important to understand the impact of using Containers. They add additional processing overhead into
 	every one of their children. The deeper you nest them, the more the cost escalates. This is especially true
-	for input events. You also loose the ability to set the display depth of Container children in the same
+	for input events. You also lose the ability to set the display depth of Container children in the same
 	flexible manner as those not within them. In short, don't use them for the sake of it. You pay a small cost
 	every time you create one, try to structure your game around avoiding that where possible.
 **/
@@ -265,12 +265,14 @@ package phaser.gameobjects;
 	function moveTo<T>(child:T, index:Float):Container;
 	/**
 		Moves a Game Object above another one within this Container.
+		If the Game Object is already above the other, it isn't moved.
 		
 		These 2 Game Objects must already be children of this Container.
 	**/
 	function moveAbove<T>(child1:T, child2:T):Container;
 	/**
 		Moves a Game Object below another one within this Container.
+		If the Game Object is already below the other, it isn't moved.
 		
 		These 2 Game Objects must already be children of this Container.
 	**/
@@ -554,6 +556,42 @@ package phaser.gameobjects;
 		Setting the depth will queue a depth sort event within the Scene.
 	**/
 	function setDepth(value:Float):Container;
+	/**
+		Sets this Game Object to be at the top of the display list, or the top of its parent container.
+		
+		Being at the top means it will render on-top of everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToTop():Container;
+	/**
+		Sets this Game Object to the back of the display list, or the back of its parent container.
+		
+		Being at the back means it will render below everything else.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setToBack():Container;
+	/**
+		Move this Game Object so that it appears above the given Game Object.
+		
+		This means it will render immediately after the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setAbove(gameObject:GameObject):Container;
+	/**
+		Move this Game Object so that it appears below the given Game Object.
+		
+		This means it will render immediately under the other object in the display list.
+		
+		Both objects must belong to the same display list, or parent container.
+		
+		This method does not change this Game Objects `depth` value, it simply alters its list position.
+	**/
+	function setBelow(gameObject:GameObject):Container;
 	/**
 		The Mask this Game Object is using during render.
 	**/
@@ -976,7 +1014,7 @@ package phaser.gameobjects;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():Container;
+	function disableInteractive(?resetCursor:Bool):Container;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -997,7 +1035,7 @@ package phaser.gameobjects;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():Container;
+	function removeInteractive(?resetCursor:Bool):Container;
 	/**
 		Adds this Game Object to the given Display List.
 		

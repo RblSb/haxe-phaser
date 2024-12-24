@@ -277,23 +277,23 @@ package phaser.input;
 	**/
 	function forwardButtonDown():Bool;
 	/**
-		Checks to see if the left button was just released on this Pointer.
+		Checks to see if the release of the left button was the most recent activity on this Pointer.
 	**/
 	function leftButtonReleased():Bool;
 	/**
-		Checks to see if the right button was just released on this Pointer.
+		Checks to see if the release of the right button was the most recent activity on this Pointer.
 	**/
 	function rightButtonReleased():Bool;
 	/**
-		Checks to see if the middle button was just released on this Pointer.
+		Checks to see if the release of the middle button was the most recent activity on this Pointer.
 	**/
 	function middleButtonReleased():Bool;
 	/**
-		Checks to see if the back button was just released on this Pointer.
+		Checks to see if the release of the back button was the most recent activity on this Pointer.
 	**/
 	function backButtonReleased():Bool;
 	/**
-		Checks to see if the forward button was just released on this Pointer.
+		Checks to see if the release of the forward button was the most recent activity on this Pointer.
 	**/
 	function forwardButtonReleased():Bool;
 	/**

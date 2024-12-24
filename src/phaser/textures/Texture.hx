@@ -99,7 +99,7 @@ package phaser.textures;
 		This is useful if this Texture is, for example, a sprite sheet within an Atlas, and you
 		need to know the total bounds of the sprite sheet.
 	**/
-	function getFrameBounds(sourceIndex:Float):phaser.types.math.RectangleLike;
+	function getFrameBounds(?sourceIndex:Float):phaser.types.math.RectangleLike;
 	/**
 		Returns an array with all of the names of the Frames in this Texture.
 		

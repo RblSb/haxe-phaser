@@ -91,6 +91,19 @@ package phaser.loader;
 	**/
 	var base64 : Bool;
 	/**
+		The counter for the number of times to retry loading this file before it fails.
+		
+		You can set this property value in the FileConfig object. If not present,
+		this property is read from the `LoaderPlugin.maxRetries` property when
+		this File instance is created.
+		
+		You can set this value via the Game Config, or you can adjust the `LoaderPlugin` property
+		at any point after the Loader has started. However, it will not apply to files
+		that have already been added to the Loader, only those added after this value
+		is changed.
+	**/
+	var retryAttempts : Float;
+	/**
 		Links this File with another, so they depend upon each other for loading and processing.
 	**/
 	function setLink(fileB:File):Void;
@@ -163,7 +176,7 @@ package phaser.loader;
 	static function createObjectURL(image:js.html.ImageElement, blob:js.html.Blob, defaultType:String):Void;
 	/**
 		Static method for releasing an existing object URL which was previously created
-		by calling {@link File#createObjectURL} method.
+		by calling {@link Phaser.Loader.File.createObjectURL} method.
 	**/
 	static function revokeObjectURL(image:js.html.ImageElement):Void;
 }

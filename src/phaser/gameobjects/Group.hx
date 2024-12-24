@@ -200,7 +200,7 @@ package phaser.gameobjects;
 	**/
 	function getFirstDead(?createIfNull:Bool, ?x:Float, ?y:Float, ?key:String, ?frame:ts.AnyOf2<String, Float>, ?visible:Bool):Dynamic;
 	/**
-		{@link Phaser.GameObjects.Components.Animation#play Plays} an animation for all members of this group.
+		{@link Phaser.Animations.AnimationState#play Plays} an animation for all members of this group.
 	**/
 	function playAnimation(key:String, ?startFrame:String):Group;
 	/**

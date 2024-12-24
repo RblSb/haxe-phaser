@@ -7,7 +7,7 @@ package phaser.tilemaps;
 @:native("Phaser.Tilemaps.Tileset") extern class Tileset {
 	function new(name:String, firstgid:Float, ?tileWidth:Float, ?tileHeight:Float, ?tileMargin:Float, ?tileSpacing:Float, ?tileProperties:Dynamic, ?tileData:Dynamic, ?tileOffset:Dynamic);
 	/**
-		The name of the Tileset.s
+		The name of the Tileset.
 	**/
 	var name : String;
 	/**
@@ -104,7 +104,7 @@ package phaser.tilemaps;
 	**/
 	function setTileSize(?tileWidth:Float, ?tileHeight:Float):Tileset;
 	/**
-		Sets the tile margin & spacing and updates the tile data (rows, columns, etc.).
+		Sets the tile margin and spacing and updates the tile data (rows, columns, etc.).
 	**/
 	function setSpacing(?margin:Float, ?spacing:Float):Tileset;
 	/**

@@ -16,7 +16,7 @@ typedef MatterCollisionPair = {
 	/**
 		An array containing all of the active contacts between bodies A and B.
 	**/
-	var activeContacts : Array<matterjs.Vector>;
+	var contacts : Array<matterjs.Vector>;
 	/**
 		The amount of separation that occurred between bodies A and B.
 	**/

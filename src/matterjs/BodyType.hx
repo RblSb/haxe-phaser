@@ -269,7 +269,7 @@ typedef BodyType = {
 		A reference to the Phaser Game Object this body belongs to, if any.
 	**/
 	@:optional
-	var gameObject : Dynamic;
+	var gameObject : phaser.gameobjects.GameObject;
 	/**
 		The scale of the Body.
 	**/
@@ -317,10 +317,10 @@ typedef BodyType = {
 	@:optional
 	var onCollideActiveCallback : haxe.Constraints.Function;
 	/**
-		A collision callback dictionary used by the `Body.setOnCollideWith` function.
+		A collision callback dictionary _(body id -> function)_ used by the `Body.setOnCollideWith` function.
 	**/
 	@:optional
-	var onCollideWith : Dynamic;
+	var onCollideWith : Array<haxe.Constraints.Function>;
 	/**
 		Sets the onCollideWith callback.
 	**/

@@ -44,6 +44,33 @@ package phaser.gameobjects;
 	**/
 	function bitmapMask(?maskObject:ts.AnyOf2<GameObject, phaser.textures.DynamicTexture>, ?x:Float, ?y:Float, ?texture:ts.AnyOf2<String, phaser.textures.Texture>, ?frame:ts.AnyOf3<String, Float, phaser.textures.Frame>):phaser.display.masks.BitmapMask;
 	/**
+		The Scene to which this Game Object Factory belongs.
+	**/
+	private var scene : phaser.Scene;
+	/**
+		A reference to the Scene.Systems.
+	**/
+	private var systems : phaser.scenes.Systems;
+	/**
+		A reference to the Scene Event Emitter.
+	**/
+	private var events : phaser.events.EventEmitter;
+	/**
+		A reference to the Scene Display List.
+	**/
+	private var displayList : DisplayList;
+	/**
+		A reference to the Scene Update List.
+	**/
+	private var updateList : UpdateList;
+	/**
+		Adds an existing Game Object to this Scene.
+		
+		If the Game Object renders, it will be added to the Display List.
+		If it has a `preUpdate` method, it will be added to the Update List.
+	**/
+	function existing<G>(child:G):G;
+	/**
 		Creates a new Dynamic Bitmap Text Game Object and adds it to the Scene.
 		
 		BitmapText objects work by taking a texture file and an XML or JSON file that describes the font structure.
@@ -176,33 +203,6 @@ package phaser.gameobjects;
 	**/
 	@:native("extern")
 	function extern_():Extern;
-	/**
-		The Scene to which this Game Object Factory belongs.
-	**/
-	private var scene : phaser.Scene;
-	/**
-		A reference to the Scene.Systems.
-	**/
-	private var systems : phaser.scenes.Systems;
-	/**
-		A reference to the Scene Event Emitter.
-	**/
-	private var events : phaser.events.EventEmitter;
-	/**
-		A reference to the Scene Display List.
-	**/
-	private var displayList : DisplayList;
-	/**
-		A reference to the Scene Update List.
-	**/
-	private var updateList : UpdateList;
-	/**
-		Adds an existing Game Object to this Scene.
-		
-		If the Game Object renders, it will be added to the Display List.
-		If it has a `preUpdate` method, it will be added to the Update List.
-	**/
-	function existing<G>(child:G):G;
 	/**
 		Creates a new Graphics Game Object and adds it to the Scene.
 		

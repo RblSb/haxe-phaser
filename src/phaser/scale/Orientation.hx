@@ -3,13 +3,21 @@ package phaser.scale;
 /**
 	Phaser Scale Manager constants for orientation.
 **/
-@:native("Phaser.Scale.Orientation") extern enum abstract Orientation(Int) from Int to Int {
+@:native("Phaser.Scale.Orientation") @:enum extern abstract Orientation(Int) from Int to Int {
 	/**
-		A landscape orientation.
+		The primary landscape orientation.
 	**/
 	var LANDSCAPE;
 	/**
-		A portrait orientation.
+		The secondary landscape orientation.
+	**/
+	var LANDSCAPE_SECONDARY;
+	/**
+		The primary portrait orientation.
 	**/
 	var PORTRAIT;
+	/**
+		The secondary portrait orientation.
+	**/
+	var PORTRAIT_SECONDARY;
 }

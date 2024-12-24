@@ -16,4 +16,9 @@ typedef SpriteConfig = phaser.types.gameobjects.GameObjectConfig & {
 	**/
 	@:optional
 	var anims : ts.AnyOf3<String, phaser.animations.Animation, phaser.types.animations.PlayAnimationConfig>;
+	/**
+		This property is used exclusively by `Tilemap.createFromTiles`. Set to `true` if this Sprite is being created by a Tilemap and is part of a spritesheet.
+	**/
+	@:optional
+	var useSpriteSheet : Bool;
 };

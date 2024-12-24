@@ -3,7 +3,7 @@ package phaser.tweens;
 /**
 	Phaser Tween States.
 **/
-@:native("Phaser.Tweens.States") extern enum abstract States(Int) from Int to Int {
+@:native("Phaser.Tweens.States") @:enum extern abstract States(Int) from Int to Int {
 	/**
 		TweenData state.
 	**/
@@ -77,7 +77,7 @@ package phaser.tweens;
 	var DESTROYED;
 	/**
 		A large integer value used for 'infinite' style countdowns.
-
+		
 		Similar use-case to Number.MAX_SAFE_INTEGER but we cannot use that because it's not
 		supported on IE.
 	**/

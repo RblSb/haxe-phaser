@@ -39,11 +39,6 @@ package phaser.input;
 @:native("Phaser.Input.InputPlugin") extern class InputPlugin extends phaser.events.EventEmitter {
 	function new(scene:phaser.Scene);
 	/**
-		An instance of the Gamepad Plugin class, if enabled via the `input.gamepad` Scene or Game Config property.
-		Use this to create access Gamepads connected to the browser and respond to gamepad buttons.
-	**/
-	var gamepad : Null<phaser.input.gamepad.GamepadPlugin>;
-	/**
 		A reference to the Scene that this Input Plugin is responsible for.
 	**/
 	var scene : phaser.Scene;
@@ -117,9 +112,23 @@ package phaser.input;
 	**/
 	var dragTimeThreshold : Float;
 	/**
-		Checks to see if both this plugin and the Scene to which it belongs is active.
+		Checks to see if the Input Manager, this plugin and the Scene to which it belongs are all active and input enabled.
 	**/
 	function isActive():Bool;
+	/**
+		Sets a custom cursor on the parent canvas element of the game, based on the `cursor`
+		setting of the given Interactive Object (i.e. a Sprite).
+		
+		See the CSS property `cursor` for more information on MDN:
+		
+		https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
+	**/
+	function setCursor(interactiveObject:phaser.types.input.InteractiveObject):Void;
+	/**
+		Forces the Input Manager to clear the custom or hand cursor, regardless of the
+		interactive state of any Game Objects.
+	**/
+	function resetCursor():Void;
 	/**
 		This is called automatically by the Input Manager.
 		It emits events for plugins to listen to and also handles polling updates, if enabled.
@@ -136,7 +145,7 @@ package phaser.input;
 		An input disabled Game Object still retains its Interactive Object component and can be re-enabled
 		at any time, by passing it to `InputPlugin.enable`.
 	**/
-	function disable(gameObject:phaser.gameobjects.GameObject):InputPlugin;
+	function disable(gameObject:phaser.gameobjects.GameObject, ?resetCursor:Bool):InputPlugin;
 	/**
 		Enable a Game Object for interaction.
 		
@@ -189,6 +198,54 @@ package phaser.input;
 		5 = Pointer actively dragging but has been released, notify draglist
 	**/
 	function setDragState(pointer:Pointer, state:Float):Void;
+	/**
+		This method will force the given Game Object into the 'down' input state.
+		
+		This will check to see if the Game Object is enabled for input, and if so,
+		it will emit the `GAMEOBJECT_POINTER_DOWN` event for it. If that doesn't change
+		the input state, it will then emit the `GAMEOBJECT_DOWN` event.
+		
+		The Game Object is not checked against the Pointer to see if it can enter this state,
+		that is up to you to do before calling this method.
+	**/
+	function forceDownState(pointer:Pointer, gameObject:phaser.gameobjects.GameObject):Void;
+	/**
+		This method will force the given Game Object into the 'up' input state.
+		
+		This will check to see if the Game Object is enabled for input, and if so,
+		it will emit the `GAMEOBJECT_POINTER_UP` event for it. If that doesn't change
+		the input state, it will then emit the `GAMEOBJECT_UP` event.
+		
+		The Game Object is not checked against the Pointer to see if it can enter this state,
+		that is up to you to do before calling this method.
+	**/
+	function forceUpState(pointer:Pointer, gameObject:phaser.gameobjects.GameObject):Void;
+	/**
+		This method will force the given Game Object into the 'over' input state.
+		
+		This will check to see if the Game Object is enabled for input, and if so,
+		it will emit the `GAMEOBJECT_POINTER_OVER` event for it. If that doesn't change
+		the input state, it will then emit the `GAMEOBJECT_OVER` event.
+		
+		The Game Object is not checked against the Pointer to see if it can enter this state,
+		that is up to you to do before calling this method.
+	**/
+	function forceOverState(pointer:Pointer, gameObject:phaser.gameobjects.GameObject):Void;
+	/**
+		This method will force the given Game Object into the 'out' input state.
+		
+		This will check to see if the Game Object is enabled for input, and if so,
+		it will emit the `GAMEOBJECT_POINTER_OUT` event for it. If that doesn't change
+		the input state, it will then emit the `GAMEOBJECT_OUT` event.
+		
+		The Game Object is not checked against the Pointer to see if it can enter this state,
+		that is up to you to do before calling this method.
+	**/
+	function forceOutState(pointer:Pointer, gameObject:phaser.gameobjects.GameObject):Void;
+	/**
+		This method will force the given Game Object into the given input state.
+	**/
+	function forceState(pointer:Pointer, gameObject:phaser.gameobjects.GameObject, gameObjectEvent:String, inputPluginEvent:String, ?setCursor:Bool):Void;
 	/**
 		Sets the draggable state of the given array of Game Objects.
 		
@@ -464,6 +521,11 @@ package phaser.input;
 		This will be `undefined` by default unless you add a new Pointer using `addPointer`.
 	**/
 	final pointer10 : Pointer;
+	/**
+		An instance of the Gamepad Plugin class, if enabled via the `input.gamepad` Scene or Game Config property.
+		Use this to create access Gamepads connected to the browser and respond to gamepad buttons.
+	**/
+	var gamepad : Null<phaser.input.gamepad.GamepadPlugin>;
 	/**
 		An instance of the Keyboard Plugin class, if enabled via the `input.keyboard` Scene or Game Config property.
 		Use this to create Key objects and listen for keyboard specific events.

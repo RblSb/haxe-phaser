@@ -228,7 +228,7 @@ package phaser.gameobjects;
 		
 		If want to completely remove interaction from this Game Object then use `removeInteractive` instead.
 	**/
-	function disableInteractive():GameObject;
+	function disableInteractive(?resetCursor:Bool):GameObject;
 	/**
 		If this Game Object has previously been enabled for input, this will queue it
 		for removal, causing it to no longer be interactive. The removal happens on
@@ -249,7 +249,7 @@ package phaser.gameobjects;
 		being used. I.e.: `sprite.input.hitArea.setSize(width, height)` (assuming the
 		shape is a Rectangle, which it is by default.)
 	**/
-	function removeInteractive():GameObject;
+	function removeInteractive(?resetCursor:Bool):GameObject;
 	/**
 		This callback is invoked when this Game Object is added to a Scene.
 		
@@ -341,6 +341,18 @@ package phaser.gameobjects;
 		run animations.
 	**/
 	function removeFromUpdateList():GameObject;
+	/**
+		Returns a reference to the underlying display list _array_ that contains this Game Object,
+		which will be either the Scene's Display List or the internal list belonging
+		to its parent Container, if it has one.
+		
+		If this Game Object is not on a display list or in a container, it will return `null`.
+		
+		You should be very careful with this method, and understand that it returns a direct reference to the
+		internal array used by the Display List. Mutating this array directly can cause all kinds of subtle
+		and difficult to debug issues in your game.
+	**/
+	function getDisplayList():Null<Array<GameObject>>;
 	/**
 		Destroys this Game Object removing it from the Display List and Update List and
 		severing all ties to parent resources.
