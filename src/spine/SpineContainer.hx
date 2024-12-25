@@ -35,10 +35,10 @@ extern class SpineContainer extends phaser.gameobjects.Container
 
     public function setExclusive(?value: Bool): SpineContainer;
     public function getBounds(?output: phaser.geom.Rectangle): phaser.geom.Rectangle;
-    public function pointToContainer(source: haxe.ds.Either<phaser.geom.Point, phaser.math.Vector2>, ?output: haxe.ds.Either<phaser.geom.Point, phaser.math.Vector2>): haxe.ds.Either<phaser.geom.Point, phaser.math.Vector2>;
+    public function pointToContainer(source: haxe.extern.EitherType<phaser.geom.Point, phaser.math.Vector2>, ?output: haxe.extern.EitherType<phaser.geom.Point, phaser.math.Vector2>): haxe.extern.EitherType<phaser.geom.Point, phaser.math.Vector2>;
     public function getBoundsTransformMatrix(): phaser.gameobjects.components.TransformMatrix;
-    public function add(child: haxe.ds.Either<SpineGameObject, Array<SpineGameObject>>): SpineContainer;
-    public function addAt(child: haxe.ds.Either<SpineGameObject, Array<SpineGameObject>>, ?index: Float): SpineContainer;
+    public function add(child: haxe.extern.EitherType<SpineGameObject, Array<SpineGameObject>>): SpineContainer;
+    public function addAt(child: haxe.extern.EitherType<SpineGameObject, Array<SpineGameObject>>, ?index: Float): SpineContainer;
     public function getAt(index: Float): SpineGameObject;
     public function getIndex(child: SpineGameObject): Float;
     public function sort(property: String, ?handler: Any): SpineContainer;
@@ -49,7 +49,7 @@ extern class SpineContainer extends phaser.gameobjects.Container
     public function count(property: String, value: Any, ?startIndex: Float, ?endIndex: Float): Float;
     public function swap(child1: SpineGameObject, child2: SpineGameObject): SpineContainer;
     public function moveTo(child: SpineGameObject, index: Float): SpineContainer;
-    public function remove(child: haxe.ds.Either<SpineGameObject, Array<SpineGameObject>>, ?destroyChild: Bool): SpineContainer;
+    public function remove(child: haxe.extern.EitherType<SpineGameObject, Array<SpineGameObject>>, ?destroyChild: Bool): SpineContainer;
     public function removeAt(index: Float, ?destroyChild: Bool): SpineContainer;
     public function removeBetween(?startIndex: Float, ?endIndex: Float, ?destroyChild: Bool): SpineContainer;
     public function removeAll(?destroyChild: Bool): SpineContainer;
@@ -78,9 +78,9 @@ extern class SpineContainer extends phaser.gameobjects.Container
     public function setAlpha(?value: Float): SpineContainer;
 
     // public var alpha: Float;
-    // public var blendMode: haxe.ds.Either<phaser.BlendModes, String>;
+    // public var blendMode: haxe.extern.EitherType<phaser.BlendModes, String>;
 
-    public function setBlendMode(value: haxe.ds.Either<String, phaser.BlendModes>): SpineContainer;
+    public function setBlendMode(value: haxe.extern.EitherType<String, phaser.BlendModes>): SpineContainer;
 
     // public var width: Float;
     // public var height: Float;
@@ -95,9 +95,9 @@ extern class SpineContainer extends phaser.gameobjects.Container
 
     public function setDepth(value: Float): SpineContainer;
 
-    // public var mask: haxe.ds.Either<phaser.display.masks.BitmapMask, phaser.display.masks.GeometryMask>;
+    // public var mask: haxe.extern.EitherType<phaser.display.masks.BitmapMask, phaser.display.masks.GeometryMask>;
 
-    public function setMask(mask: haxe.ds.Either<phaser.display.masks.BitmapMask, phaser.display.masks.GeometryMask>): SpineContainer;
+    public function setMask(mask: haxe.extern.EitherType<phaser.display.masks.BitmapMask, phaser.display.masks.GeometryMask>): SpineContainer;
     public function clearMask(?destroyMask: Bool): SpineContainer;
     public function createBitmapMask(?renderable: phaser.gameobjects.GameObject): phaser.display.masks.BitmapMask;
     public function createGeometryMask(?graphics: phaser.gameobjects.Graphics): phaser.display.masks.GeometryMask;
@@ -138,7 +138,7 @@ typedef SpineContainerConfig = phaser.types.gameobjects.GameObjectConfig&
 {
     // ?x: Float, // compile fix
     // ?y: Float,
-    ?children: haxe.ds.Either<SpineGameObject, Array<SpineGameObject>>
+    ?children: haxe.extern.EitherType<SpineGameObject, Array<SpineGameObject>>
 }
 
 #end

@@ -2830,9 +2830,9 @@ package phaser.loader;
 	
 	#if SPINE_PLUGIN
 	function spine(
-		key: haxe.ds.Either<String, haxe.ds.Either<phaser.loader.filetypes.SpineFileConfig, Array<phaser.loader.filetypes.SpineFileConfig>>>,
+		key: haxe.extern.EitherType<String, haxe.extern.EitherType<phaser.loader.filetypes.SpineFileConfig, Array<phaser.loader.filetypes.SpineFileConfig>>>,
 		jsonURL: String,
-		atlasURL: haxe.ds.Either<String, Array<String>>,
+		atlasURL: haxe.extern.EitherType<String, Array<String>>,
 		?preMultipliedAlpha: Bool,
 		?textureXhrSetting: phaser.types.loader.XHRSettingsObject,
 		?atlasXhrSettings: phaser.types.loader.XHRSettingsObject

@@ -833,7 +833,7 @@ package phaser.gameobjects;
 
 	#if SPINE_PLUGIN
 	function spine(x: Float, y: Float, ?key: String, ?animationName: String, ?loop: Bool): spine.SpineGameObject;
-	function spineContainer(x: Float, y: Float, ?children: haxe.ds.Either<spine.SpineGameObject, Array<spine.SpineGameObject>>): spine.SpineContainer;
+	function spineContainer(x: Float, y: Float, ?children: haxe.extern.EitherType<spine.SpineGameObject, Array<spine.SpineGameObject>>): spine.SpineContainer;
 	#end
 
 	/**

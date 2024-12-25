@@ -879,7 +879,7 @@ extern class SkeletonJson {
     public var scale: Float;
     private var linkedMeshes : Any;
     public function new(attachmentLoader: AttachmentLoader);
-    public function readSkeletonData(json: haxe.ds.Either<String, Any>): SkeletonData;
+    public function readSkeletonData(json: haxe.extern.EitherType<String, Any>): SkeletonData;
     public function readAttachment(map: Any, skin: Skin, slotIndex: Float, name: String, skeletonData: SkeletonData): Attachment;
     public function readVertices(map: Any, attachment: VertexAttachment, verticesLength: Float): Void;
     public function readAnimation(map: Any, name: String, skeletonData: SkeletonData): Void;
@@ -1189,7 +1189,7 @@ extern class Utils {
     public static function newArray<T>(size: Float, defaultValue: T): Array<T>;
     public static function newFloatArray(size: Float): ArrayLike<Float>;
     public static function newShortArray(size: Float): ArrayLike<Float>;
-    public static function toFloatArray(array: Array<Float>): haxe.ds.Either<Array<Float>, js.lib.Float32Array>;
+    public static function toFloatArray(array: Array<Float>): haxe.extern.EitherType<Array<Float>, js.lib.Float32Array>;
     public static function toSinglePrecision(value: Float): Float;
     public static function webkit602BugfixHelper(alpha: Float, blend: MixBlend): Void;
     public static function contains<T>(array: Array<T>, element: T, ?identity: Bool): Bool;

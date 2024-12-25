@@ -13,7 +13,7 @@ import spine.SpineGameObject;
 
 //     @:native("Phaser.Loader.LoaderPlugin")
 //     extern interface LoaderPlugin extends Phaser.Events.EventEmitter {
-//         spine(key: haxe.ds.Either<String, haxe.ds.Either<Phaser.Loader.FileTypes.SpineFileConfig, Array<Phaser.Loader.FileTypes.SpineFileConfig>>>, jsonURL: String, atlasURL: haxe.ds.Either<String, Array<String>>, preMultipliedAlpha?: boolean, textureXhrSettings?: Phaser.Types.Loader.XHRSettingsObject, atlasXhrSettings?: Phaser.Types.Loader.XHRSettingsObject): LoaderPlugin;
+//         spine(key: haxe.extern.EitherType<String, haxe.extern.EitherType<Phaser.Loader.FileTypes.SpineFileConfig, Array<Phaser.Loader.FileTypes.SpineFileConfig>>>, jsonURL: String, atlasURL: haxe.extern.EitherType<String, Array<String>>, preMultipliedAlpha?: boolean, textureXhrSettings?: Phaser.Types.Loader.XHRSettingsObject, atlasXhrSettings?: Phaser.Types.Loader.XHRSettingsObject): LoaderPlugin;
 //     }
 // }
 
@@ -42,9 +42,9 @@ extern class SpinePlugin extends phaser.plugins.ScenePlugin {
     public var textures: phaser.textures.TextureManager;
     public var drawDebug: Bool;
     public var gl: Any;
-    public var renderer: haxe.ds.Either<phaser.renderer.canvas.CanvasRenderer, phaser.renderer.webgl.WebGLRenderer>;
+    public var renderer: haxe.extern.EitherType<phaser.renderer.canvas.CanvasRenderer, phaser.renderer.webgl.WebGLRenderer>;
     public var sceneRenderer: spine.webgl.Spine.SceneRenderer;
-    public var skeletonRenderer: haxe.ds.Either<spine.canvas.Spine.SkeletonRenderer, spine.webgl.Spine.SkeletonRenderer>;
+    public var skeletonRenderer: haxe.extern.EitherType<spine.canvas.Spine.SkeletonRenderer, spine.webgl.Spine.SkeletonRenderer>;
     public var skeletonDebugRenderer: spine.webgl.Spine.SkeletonDebugRenderer;
 
     public var plugin: Any /*typeof spine*/;

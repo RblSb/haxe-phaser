@@ -7,7 +7,7 @@ import spine.Spine;
 
 @:native("spine.webgl.AssetManager")
 extern class AssetManager extends spine.AssetManager {
-    public function new(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?pathPrefix: String);
+    public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?pathPrefix: String);
 }
 
 
@@ -39,7 +39,7 @@ extern class GLTexture extends Texture implements Disposable implements Restorab
     private var texture : Any;
     private var boundUnit : Any;
     private var useMipMaps : Any;
-    public function new(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, image: js.html.ImageElement, ?useMipMaps: Bool);
+    public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, image: js.html.ImageElement, ?useMipMaps: Bool);
     public function setFilters(minFilter: TextureFilter, magFilter: TextureFilter): Void;
     public function setWraps(uWrap: TextureWrap, vWrap: TextureWrap): Void;
     public function update(useMipMaps: Bool): Void;
@@ -115,7 +115,7 @@ extern class Mesh implements Disposable implements Restorable {
     public function setIndicesLength(length: Float): Void;
     public function getIndices(): js.lib.Uint16Array;
     public function getVertexSizeInFloats(): Float;
-    public function new(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, attributes: Array<VertexAttribute>, maxVertices: Float, maxIndices: Float);
+    public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, attributes: Array<VertexAttribute>, maxVertices: Float, maxIndices: Float);
     public function setVertices(vertices: Array<Float>): Void;
     public function setIndices(indices: Array<Float>): Void;
     public function draw(shader: Shader, primitiveType: Float): Void;
@@ -176,7 +176,7 @@ extern class PolygonBatcher implements Disposable {
     private var indicesLength : Any;
     private var srcBlend : Any;
     private var dstBlend : Any;
-    public function new(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?twoColorTint: Bool, ?maxVertices: Float);
+    public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?twoColorTint: Bool, ?maxVertices: Float);
     public function begin(shader: Shader): Void;
     public function setBlendMode(srcBlend: Float, dstBlend: Float): Void;
     public function draw(texture: GLTexture, vertices: ArrayLike<Float>, indices: Array<Float>): Void;
@@ -203,7 +203,7 @@ extern class SceneRenderer implements Disposable {
     private var QUAD : Any;
     private var QUAD_TRIANGLES : Any;
     private var WHITE : Any;
-    public function new(canvas: js.html.CanvasElement, context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?twoColorTint: Bool);
+    public function new(canvas: js.html.CanvasElement, context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?twoColorTint: Bool);
     public function begin(): Void;
     public function drawSkeleton(skeleton: Skeleton, ?premultipliedAlpha: Bool, ?slotRangeStart: Float, ?slotRangeEnd: Float): Void;
     public function drawSkeletonDebug(skeleton: Skeleton, ?premultipliedAlpha: Bool, ?ignoredBones: Array<String>): Void;
@@ -255,7 +255,7 @@ extern class Shader implements Disposable implements Restorable {
     public function getFragmentShader(): String;
     public function getVertexShaderSource(): String;
     public function getFragmentSource(): String;
-    public function new(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, vertexShader: String, fragmentShader: String);
+    public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, vertexShader: String, fragmentShader: String);
     private var compile : Any;
     private var compileShader : Any;
     private var compileProgram : Any;
@@ -273,9 +273,9 @@ extern class Shader implements Disposable implements Restorable {
     public function getUniformLocation(uniform: String): js.html.webgl.UniformLocation;
     public function getAttributeLocation(attribute: String): Float;
     public function dispose(): Void;
-    public static function newColoredTextured(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>): Shader;
-    public static function newTwoColoredTextured(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>): Shader;
-    public static function newColored(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>): Shader;
+    public static function newColoredTextured(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>): Shader;
+    public static function newTwoColoredTextured(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>): Shader;
+    public static function newColored(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>): Shader;
 }
 
 
@@ -291,7 +291,7 @@ extern class ShapeRenderer implements Disposable {
     private var tmp : Any;
     private var srcBlend : Any;
     private var dstBlend : Any;
-    public function new(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?maxVertices: Float);
+    public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?maxVertices: Float);
     public function begin(shader: Shader): Void;
     public function setBlendMode(srcBlend: Float, dstBlend: Float): Void;
     public function setColor(color: Color): Void;
@@ -345,7 +345,7 @@ extern class SkeletonDebugRenderer implements Disposable {
     private var vertices : Any;
     private static var LIGHT_GRAY : Any;
     private static var GREEN : Any;
-    public function new(context: haxe.ds.Either<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>);
+    public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>);
     public function draw(shapes: ShapeRenderer, skeleton: Skeleton, ?ignoredBones: Array<String>): Void;
     public function dispose(): Void;
 }
@@ -394,10 +394,10 @@ extern class Vector3 {
 
 @:native("spine.webgl.ManagedWebGLRenderingContext")
 extern class ManagedWebGLRenderingContext {
-    public var canvas: haxe.ds.Either<js.html.CanvasElement, Any/*OffscreenCanvas*/>;
+    public var canvas: haxe.extern.EitherType<js.html.CanvasElement, Any/*OffscreenCanvas*/>;
     public var gl: js.html.webgl.RenderingContext;
     private var restorables : Any;
-    public function new(canvasOrContext: haxe.ds.Either<js.html.CanvasElement, js.html.webgl.RenderingContext>, ?contextConfig: Any);
+    public function new(canvasOrContext: haxe.extern.EitherType<js.html.CanvasElement, js.html.webgl.RenderingContext>, ?contextConfig: Any);
     public function addRestorable(restorable: Restorable): Void;
     public function removeRestorable(restorable: Restorable): Void;
 }
