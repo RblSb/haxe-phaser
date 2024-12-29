@@ -51,9 +51,9 @@ extern class SpinePlugin extends phaser.plugins.ScenePlugin {
 
     public function getAtlasCanvas(key: String): spine.Spine.TextureAtlas;
     public function getAtlasWebGL(key: String): spine.Spine.TextureAtlas;
-    public function worldToLocal(x: Float, y: Float, skeleton: spine.Skeleton, ?bone: spine.Bone): spine.Spine.Vector2;
-    public function getVector2(x: Float, y: Float): spine.Vector2;
-    public function getVector3(x: Float, y: Float, z: Float): spine.Vector2;
+    public function worldToLocal(x: Float, y: Float, skeleton: Skeleton, ?bone: Bone): spine.Spine.Vector2;
+    public function getVector2(x: Float, y: Float): Vector2;
+    public function getVector3(x: Float, y: Float, z: Float): Vector2;
     public function setDebugBones(?value: Bool): SpinePlugin;
     public function setDebugRegionAttachments(?value: Bool): SpinePlugin;
     public function setDebugBoundingBoxes(?value: Bool): SpinePlugin;
@@ -62,10 +62,10 @@ extern class SpinePlugin extends phaser.plugins.ScenePlugin {
     public function setDebugPaths(?value: Bool): SpinePlugin;
     public function setDebugSkeletonXY(?value: Bool): SpinePlugin;
     public function setDebugClipping(?value: Bool): SpinePlugin;
-    public function setEffect(?effect: spine.VertexEffect): SpinePlugin;
+    public function setEffect(?effect: VertexEffect): SpinePlugin;
     public function createSkeleton(key: String, ?skeletonJSON: Any): Null<Any>;
-    public function createAnimationState(skeleton: spine.Skeleton): Any;
-    public function getBounds(skeleton: spine.Skeleton): Any;
+    public function createAnimationState(skeleton: Skeleton): Any;
+    public function getBounds(skeleton: Skeleton): Any;
     public function onResize(): Void;
     public function add(x: Float, y: Float, ?key: String, ?animationName: String, ?loop: Bool): SpineGameObject;
     public function make(config: SpineGameObjectConfig, ?addToScene: Bool): SpineGameObject;

@@ -6,7 +6,7 @@ import spine.Spine;
 
 
 @:native("spine.canvas.AssetManager")
-extern class AssetManager extends spine.AssetManager {
+extern class AssetManager extends spine.Spine.AssetManager {
     public function new(?pathPrefix: String);
 }
 

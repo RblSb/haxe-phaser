@@ -6,7 +6,7 @@ import spine.Spine;
 
 
 @:native("spine.webgl.AssetManager")
-extern class AssetManager extends spine.AssetManager {
+extern class AssetManager extends spine.Spine.AssetManager {
     public function new(context: haxe.extern.EitherType<ManagedWebGLRenderingContext, js.html.webgl.RenderingContext>, ?pathPrefix: String);
 }
 
